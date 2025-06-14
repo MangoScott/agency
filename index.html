@@ -30,12 +30,20 @@
             --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.2);
         }
 
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Prevent horizontal scroll */
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--primary);
             overflow-x: hidden;
             background: var(--white);
+            position: relative;
+            width: 100%;
         }
 
         /* Container utility */
@@ -274,11 +282,9 @@
         }
 
         .section-header {
-            max-width: 700px;
+            max-width: 1400px;
             margin-bottom: 6rem;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: left;
         }
 
         .section-title {
@@ -605,6 +611,9 @@
             color: white;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .pricing .section-title,
@@ -763,81 +772,29 @@
         footer {
             background: var(--primary);
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .footer-brand h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+        .footer-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
-        .footer-brand p {
+        .footer-info p {
             font-size: 0.95rem;
-            line-height: 1.6;
             opacity: 0.8;
-            max-width: 300px;
         }
 
-        .footer-column h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .footer-column ul li a:hover {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-
-        .footer-bottom p {
+        .copyright {
             font-size: 0.9rem;
             opacity: 0.7;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            opacity: 1;
         }
 
         /* Mobile menu enhancements */
@@ -1026,16 +983,8 @@
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .footer-brand p {
-                margin: 0 auto;
-            }
-
-            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
                 text-align: center;
             }
         }
@@ -1304,40 +1253,11 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
+                <div class="footer-info">
                     <h3>GotKiwi</h3>
-                    <p>Cutting through the noise with elegantly simple marketing strategies that actually work.</p>
+                    <p>hello@gotkiwi.com</p>
                 </div>
-                <div class="footer-column">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Strategy</a></li>
-                        <li><a href="#services">Analytics</a></li>
-                        <li><a href="#services">Design</a></li>
-                        <li><a href="#services">Development</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#work">Case Studies</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="mailto:hello@gotkiwi.com">hello@gotkiwi.com</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 GotKiwi. All rights reserved.</p>
+                <p class="copyright">&copy; 2024 GotKiwi. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1351,37 +1271,87 @@
             }, 800);
         });
 
-        // Scroll progress bar
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        // Remove the duplicate scroll event listener
+        // Add active state to navigation links based on scroll position
+        const updateActiveNav = () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const scrollPosition = window.pageYOffset + 100;
             
-            scrollProgress.style.width = scrolled + '%';
-            
-            // Navbar background change
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
                 if (target) {
-                    const navHeight = document.getElementById('navbar').offsetHeight;
+                    const navHeight = 80; // Fixed nav height
                     const targetPosition = target.offsetTop - navHeight;
+                    
+                    // Disable scroll event temporarily
+                    window.removeEventListener('scroll', handleScroll);
                     
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // Re-enable scroll event after animation
+                    setTimeout(() => {
+                        window.addEventListener('scroll', handleScroll);
+                    }, 1000);
                 }
             });
+        });
+
+        // Combine all scroll events into one function
+        const handleScroll = () => {
+            const navbar = document.getElementById('navbar');
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            
+            // Update progress bar
+            scrollProgress.style.width = scrolled + '%';
+            
+            // Update navbar
+            if (scrollTop > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Update active nav
+            updateActiveNav();
+        };
+
+        // Throttle scroll events
+        let scrollTimer;
+        window.addEventListener('scroll', () => {
+            if (scrollTimer) {
+                clearTimeout(scrollTimer);
+            }
+            scrollTimer = setTimeout(handleScroll, 10);
         });
 
         // Mobile menu functionality
@@ -1462,30 +1432,6 @@
                 document.body.style.overflow = 'auto';
             }
         });
-
-        // Add active state to navigation links based on scroll position
-        const updateActiveNav = () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', updateActiveNav);
 
         // Testimonial carousel effect (optional)
         const testimonials = document.querySelectorAll('.testimonial');
