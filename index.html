@@ -334,7 +334,106 @@
             margin-top: 0.5rem;
         }
 
-        /* Contact Section */
+        /* Pricing Section */
+        .pricing {
+            padding: 8rem 3rem;
+            background: #f8f9fa;
+        }
+
+        .pricing-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 3px solid #1a1a1a;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-amount {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: #666;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: #1a1a1a;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .setup-fee {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .setup-fee-text {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .setup-amount {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .pricing-cta {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            border-radius: 5px;
+        }
+
+        .pricing-cta:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
         .contact {
             padding: 8rem 3rem;
             background: white;
@@ -436,6 +535,7 @@
             <a href="#home" class="logo">🍍 Pineapple</a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -586,6 +686,46 @@
                     </p>
                     <div class="testimonial-author">Lisa Rodriguez</div>
                     <div class="testimonial-company">Founder, Wellness Co</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple pricing</h2>
+                <p class="section-subtitle">One transparent price. No surprises. No complexity.</p>
+            </div>
+            
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Monthly Partnership</h3>
+                    </div>
+                    <div class="pricing-amount">$889</div>
+                    <div class="pricing-period">per month</div>
+                    
+                    <div class="setup-fee">
+                        <div class="setup-fee-text">One-time setup fee for new projects</div>
+                        <div class="setup-amount">$1,500</div>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>All six core services included</li>
+                        <li>Strategy & insights consultation</li>
+                        <li>Data & analytics reporting</li>
+                        <li>Web development & management</li>
+                        <li>Design & user experience optimization</li>
+                        <li>Complimentary Fresho access</li>
+                        <li>SEO & social media management</li>
+                        <li>Monthly strategy sessions</li>
+                        <li>Dedicated account management</li>
+                        <li>Cancel anytime after 3 months</li>
+                    </ul>
+                    
+                    <a href="#contact" class="pricing-cta">START YOUR PROJECT</a>
                 </div>
             </div>
         </div>
