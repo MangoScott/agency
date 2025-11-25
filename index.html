@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GotKiwi - In a complex world, simple wins</title>
-    <!-- Favicon -->
+    <title>GotKiwi — In a complex world, simple wins</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -18,447 +17,332 @@
         }
 
         :root {
-            --primary: #1a1a1a;
-            --primary-light: #333;
-            --text-light: #666;
-            --text-lighter: #999;
-            --bg-light: #fafafa;
-            --bg-lighter: #f8f9fa;
+            --black: #0a0a0a;
             --white: #ffffff;
-            --accent: #4CAF50;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
-            --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.2);
+            --gray-50: #fafafa;
+            --gray-100: #f4f4f5;
+            --gray-200: #e4e4e7;
+            --gray-400: #a1a1aa;
+            --gray-500: #71717a;
+            --gray-600: #52525b;
+            --accent: #4285f4;
+            --accent-light: #e8f0fe;
         }
 
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Prevent horizontal scroll */
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--primary);
-            overflow-x: hidden;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--black);
             background: var(--white);
-            position: relative;
-            width: 100%;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* Container utility */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 3rem;
+            padding: 0 2rem;
         }
 
-        /* Navigation - Enhanced with blur and animation */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.25rem 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
         }
 
-        nav.scrolled {
-            padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav-container {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
         }
 
         .logo {
-            text-decoration: none;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
         }
 
-        .logo:hover {
-            transform: translateY(-2px) scale(1.05);
-        }
-
         .logo img {
-            height: 40px;
+            height: 36px;
             width: auto;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled .logo img {
-            height: 35px;
         }
 
         .nav-links {
             display: flex;
+            gap: 2.5rem;
             list-style: none;
-            gap: 3rem;
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
+            font-size: 0.9375rem;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--black);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
+        .nav-cta {
+            padding: 0.625rem 1.25rem;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 100px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gray-600);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            width: 22px;
             height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: var(--gradient-1);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            background: var(--black);
+            border-radius: 2px;
+            transition: 0.3s;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        /* Hero Section - Enhanced with video background */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 8rem 0 4rem;
+            padding: 10rem 0 6rem;
             position: relative;
             overflow: hidden;
         }
 
-        .video-background {
+        .hero::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 280px;
+            background: var(--accent);
+            border-radius: 0 3px 3px 0;
+        }
+
+        .hero-video-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            overflow: hidden;
-        }
-
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.15;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.9) 0%, 
-                rgba(250, 250, 250, 0.85) 100%);
             z-index: -1;
         }
 
-        .hero-container {
-            position: relative;
-            z-index: 1;
+        .hero-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.08;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 720px;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 900;
-            color: var(--primary);
-            line-height: 0.9;
-            margin-bottom: 2rem;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.5rem;
             opacity: 0;
-            animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            animation: fadeUp 0.8s ease-out 0.1s forwards;
         }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            font-weight: 300;
-            line-height: 1.5;
-            opacity: 0;
-            animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+        .hero h1 .accent {
+            color: var(--accent);
         }
 
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 3rem;
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            margin-bottom: 1rem;
             opacity: 0;
-            animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.9s forwards;
+            animation: fadeUp 0.8s ease-out 0.25s forwards;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: var(--primary);
-            color: white;
+        .hero-desc {
+            font-size: 1.0625rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+            max-width: 560px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 1rem 2rem;
+            background: var(--black);
+            color: var(--white);
             text-decoration: none;
+            font-size: 0.9375rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 100px;
+            transition: all 0.25s ease;
             opacity: 0;
-            animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
-            letter-spacing: 0.5px;
-            border-radius: 50px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
+            animation: fadeUp 0.8s ease-out 0.55s forwards;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        .hero-cta:hover {
+            background: var(--gray-600);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
         }
 
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
+        .hero-cta svg {
+            transition: transform 0.25s ease;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+        .hero-cta:hover svg {
+            transform: translateX(3px);
         }
 
-        /* Services Section - Enhanced with gradient cards */
-        .services {
-            padding: 8rem 0;
-            background: var(--bg-light);
-            position: relative;
-        }
-
-        .services::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(0, 0, 0, 0.1) 50%, 
-                transparent 100%);
+        /* Section styling */
+        section {
+            padding: 7rem 0;
         }
 
         .section-header {
-            max-width: 1400px;
-            margin-bottom: 6rem;
-            text-align: left;
+            margin-bottom: 4rem;
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            line-height: 1.1;
-            letter-spacing: -1px;
-            text-align: left;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            text-align: left;
-            max-width: 700px;
+            font-size: 1.0625rem;
+            color: var(--gray-500);
+            max-width: 480px;
+        }
+
+        /* Services */
+        .services {
+            background: var(--gray-50);
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 3rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            gap: 1px;
+            background: var(--gray-200);
             border-radius: 20px;
-            box-shadow: var(--shadow-sm);
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .service-card {
+            background: var(--white);
+            padding: 2.25rem;
+            transition: background 0.25s ease;
         }
-
-        .service-card:nth-child(2)::before { background: var(--gradient-2); }
-        .service-card:nth-child(3)::before { background: var(--gradient-3); }
-        .service-card:nth-child(4)::before { background: var(--gradient-1); }
-        .service-card:nth-child(5)::before { background: var(--gradient-2); }
-        .service-card:nth-child(6)::before { background: var(--gradient-3); }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
+            background: var(--gray-50);
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--black);
         }
 
         .service-list {
             list-style: none;
-            margin-bottom: 1.5rem;
         }
 
         .service-list li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 0.9375rem;
+            color: var(--gray-500);
+            padding: 0.375rem 0;
+            padding-left: 1.25rem;
             position: relative;
-            padding-left: 1.5rem;
         }
 
         .service-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Video Section - New showcase section */
-        .video-showcase {
-            padding: 8rem 0;
-            background: var(--primary);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .video-showcase::before {
             content: '';
             position: absolute;
-            top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23fff" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%23fff" opacity="0.1"/><circle cx="50" cy="50" r="1" fill="%23fff" opacity="0.05"/></svg>') repeat;
-            background-size: 100px 100px;
-            animation: float 20s infinite linear;
+            top: 0.875rem;
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 50%;
         }
 
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100px, -100px); }
+        /* Video Showcase */
+        .video-showcase {
+            background: var(--black);
+            color: var(--white);
         }
 
-        .video-showcase-container {
-            position: relative;
-            z-index: 1;
+        .video-showcase .section-title,
+        .video-showcase .section-subtitle {
+            color: var(--white);
         }
 
-        .video-showcase-header {
-            text-align: left;
-            margin-bottom: 4rem;
-        }
-
-        .video-showcase-header h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-            text-align: left;
-        }
-
-        .video-showcase-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            text-align: left;
+        .video-showcase .section-subtitle {
+            color: var(--gray-400);
         }
 
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
-            height: 0;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: var(--shadow-xl);
-            background: #000;
-            max-width: 1200px;
-            margin: 0 auto;
+            background: #111;
         }
 
-        .video-wrapper iframe,
         .video-wrapper video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
         }
 
-        /* Case Studies - Enhanced with better animations */
+        /* Case Studies */
         .case-studies {
-            padding: 8rem 0;
-            background: white;
+            background: var(--white);
         }
 
         .case-study-item {
@@ -466,15 +350,19 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            margin-bottom: 6rem;
+            margin-bottom: 5rem;
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
         .case-study-item.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .case-study-item:last-child {
+            margin-bottom: 0;
         }
 
         .case-study-item:nth-child(even) {
@@ -485,360 +373,289 @@
             direction: ltr;
         }
 
-        .case-study-content h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .case-study-meta {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
         }
 
-        .case-study-meta {
-            font-size: 0.9rem;
-            color: var(--text-lighter);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+        .case-study-content h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.25;
         }
 
         .case-study-description {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 2rem;
+            font-size: 1rem;
+            color: var(--gray-500);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
         }
 
         .case-study-link {
             display: inline-flex;
             align-items: center;
-            color: var(--primary);
-            text-decoration: none;
+            gap: 0.5rem;
+            font-size: 0.9375rem;
             font-weight: 600;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid var(--primary);
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            color: var(--black);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 100px;
+            transition: all 0.2s ease;
         }
 
         .case-study-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .case-study-link::after {
-            content: '→';
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .case-study-link:hover::after {
-            transform: translateX(5px);
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
         }
 
         .case-study-image {
-            height: 450px;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            position: relative;
+            aspect-ratio: 4/3;
         }
 
         .case-study-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s ease;
         }
 
-        .case-study-image:hover img {
-            transform: scale(1.05);
+        .case-study-item:hover .case-study-image img {
+            transform: scale(1.03);
         }
 
-        /* Testimonials - Enhanced with cards */
+        /* Testimonials */
         .testimonials {
-            padding: 8rem 0;
-            background: var(--bg-light);
-            position: relative;
+            background: var(--gray-50);
+        }
+
+        .testimonials .section-header {
+            text-align: center;
+        }
+
+        .testimonials .section-subtitle {
+            margin: 0 auto;
         }
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
         }
 
         .testimonial {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            position: relative;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--gray-100);
+            transition: all 0.25s ease;
         }
 
         .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            border-color: var(--gray-200);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
         }
 
         .testimonial-quote {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .testimonial-quote::before {
-            content: '"';
-            font-size: 4rem;
-            color: rgba(26, 26, 26, 0.1);
-            position: absolute;
-            top: -1rem;
-            left: -1rem;
-            font-family: serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            font-style: italic;
         }
 
         .testimonial-author {
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 700;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--black);
         }
 
         .testimonial-company {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-top: 0.25rem;
         }
 
-        /* Special case for sections that need centered headers */
-        .testimonials .section-header,
-        .pricing .section-header,
-        .contact {
-            text-align: center;
-        }
-
-        .testimonials .section-title,
-        .testimonials .section-subtitle,
-        .pricing .section-title,
-        .pricing .section-subtitle,
-        .contact .section-title {
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* Pricing */
         .pricing {
-            padding: 8rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            background: var(--black);
+            color: var(--white);
         }
 
-        .pricing .section-title,
+        .pricing .section-header {
+            text-align: center;
+        }
+
+        .pricing .section-title {
+            color: var(--white);
+        }
+
         .pricing .section-subtitle {
-            color: white;
-        }
-
-        .pricing-container {
-            max-width: 500px;
+            color: var(--gray-400);
             margin: 0 auto;
         }
 
         .pricing-card {
-            background: white;
-            color: var(--primary);
-            padding: 4rem 3rem;
-            border-radius: 30px;
-            box-shadow: var(--shadow-xl);
-            position: relative;
-            overflow: hidden;
-            transform: translateY(0);
-            transition: all 0.3s ease;
+            max-width: 420px;
+            margin: 0 auto;
+            background: var(--white);
+            color: var(--black);
+            padding: 3rem;
+            border-radius: 24px;
             text-align: center;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .pricing-header h3 {
-            font-size: 1.5rem;
+        .pricing-label {
+            font-size: 0.9375rem;
             font-weight: 600;
-            margin-bottom: 2rem;
-            color: var(--primary);
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
         }
 
         .pricing-amount {
+            font-family: 'Instrument Serif', Georgia, serif;
             font-size: 4rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: -2px;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1;
         }
 
         .pricing-period {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
+            font-size: 1rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
         }
 
-        .setup-fee {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-            border-left: 4px solid #667eea;
+        .pricing-note {
+            background: var(--gray-50);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-size: 0.9375rem;
+            color: var(--gray-600);
         }
 
-        .setup-fee-text {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .setup-amount {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
+        .pricing-note strong {
+            color: var(--accent);
+            font-weight: 600;
         }
 
         .pricing-cta {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--black);
+            color: var(--white);
             text-decoration: none;
+            font-size: 0.9375rem;
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-            border-radius: 50px;
-            box-shadow: var(--shadow-md);
+            border-radius: 100px;
+            transition: background 0.2s ease;
         }
 
         .pricing-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            background: var(--gray-600);
         }
 
-        /* Contact - Enhanced with gradient */
+        /* Contact */
         .contact {
-            padding: 8rem 0;
-            background: white;
+            background: var(--white);
             text-align: center;
-            position: relative;
         }
 
-        .contact-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: var(--primary);
-            color: white;
+        .contact .section-title {
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-desc {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+
+        .contact-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--black);
+            color: var(--white);
             text-decoration: none;
+            font-size: 0.9375rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-            border-radius: 50px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
+            border-radius: 100px;
+            transition: all 0.2s ease;
         }
 
-        .contact-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        .contact-cta:hover {
+            background: var(--gray-600);
+            transform: translateY(-2px);
         }
 
-        .contact-button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .contact-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Footer Section */
+        /* Footer */
         footer {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 0;
+            background: var(--gray-50);
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--gray-100);
         }
 
-        .footer-content {
+        .footer-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .footer-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+        .footer-logo {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--black);
         }
 
-        .footer-info p {
-            font-size: 0.95rem;
-            opacity: 0.8;
+        .footer-email {
+            font-size: 0.9375rem;
+            color: var(--gray-500);
         }
 
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.7;
+        .footer-copy {
+            font-size: 0.875rem;
+            color: var(--gray-400);
         }
 
-        /* Mobile menu enhancements */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1002;
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary);
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 3px;
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -846,10 +663,9 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
+            background: var(--white);
             z-index: 1001;
-            padding-top: 6rem;
+            padding: 6rem 2rem 2rem;
         }
 
         .mobile-menu.active {
@@ -858,16 +674,15 @@
 
         .mobile-close {
             position: absolute;
-            top: 2rem;
+            top: 1.5rem;
             right: 2rem;
-            font-size: 2rem;
+            font-size: 1.75rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--black);
         }
 
         .mobile-nav-links {
             list-style: none;
-            padding: 2rem;
             text-align: center;
         }
 
@@ -876,216 +691,128 @@
         }
 
         .mobile-nav-links a {
-            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--black);
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
         }
 
-        /* Scroll Progress Bar - Enhanced */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            z-index: 1002;
-            transition: width 0.1s ease;
-        }
-
-        /* Loading Animation - Enhanced */
-        .loading-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-animation.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .container {
-                padding: 0 2rem;
-            }
-
-            .nav-container {
-                padding: 0 2rem;
-            }
-
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-links,
+            .nav-cta {
                 display: none;
             }
-            
+
             .mobile-menu-btn {
                 display: flex;
             }
-            
+
             .hero {
-                padding: 6rem 0 4rem;
+                padding: 8rem 0 4rem;
             }
-            
-            .services, .case-studies, .testimonials, .contact, .pricing, .video-showcase {
-                padding: 6rem 0;
+
+            section {
+                padding: 5rem 0;
             }
-            
+
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
-            
+
             .case-study-item {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
+            .case-study-item:nth-child(even) {
+                direction: ltr;
+            }
+
             .testimonial-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
             }
 
-            .pricing-card {
-                padding: 3rem 2rem;
-            }
-
-            .hero h1 {
-                font-size: clamp(2.5rem, 10vw, 4rem);
-            }
-
-            .section-title {
-                font-size: clamp(2rem, 8vw, 3rem);
-            }
-
-            .footer-content {
+            .footer-inner {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1rem;
                 text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loading-animation" id="loadingAnimation">
-        <div class="loading-spinner"></div>
-    </div>
-
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
+    <nav>
+        <div class="container nav-inner">
             <a href="#home" class="logo">
-                <img src="gotkiwi.jpg" alt="GotKiwi Logo">
+                <img src="gotkiwi.jpg" alt="GotKiwi">
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#work">Clients</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="mailto:hello@gotkiwi.com" class="nav-cta">Get started</a>
             <div class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-close" id="mobileClose">×</div>
-            <ul class="mobile-nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#work">Clients</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
     </nav>
 
-    <!-- Hero Section with Video Background -->
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-close" id="mobileClose">&times;</div>
+        <ul class="mobile-nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Clients</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="mailto:hello@gotkiwi.com">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
     <section class="hero" id="home">
-        <div class="video-background">
+        <div class="hero-video-bg">
             <video autoplay muted loop playsinline>
                 <source src="gotkiwi.mp4" type="video/mp4">
-                <!-- Fallback for browsers that don't support video -->
-                Your browser does not support the video tag.
             </video>
         </div>
-        <div class="video-overlay"></div>
-        
-        <div class="hero-container container">
+        <div class="container">
             <div class="hero-content">
-                <h1>In a complex world,<br>simple wins.</h1>
-                <p class="subtitle">Cut through the noise with elegantly simple marketing</p>
-                <p class="hero-description">
-                    Your business deserves marketing that works, not marketing that complicates. We deliver clear strategies, honest communication, and measurable results without the industry jargon or unnecessary complexity.
-                </p>
-                <a href="mailto:hello@gotkiwi.com?subject=Interest%20in%20GotKiwi&body=Hi%20GotKiwi%20team%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20your%20services.%0A%0ACompany%20Name%3A%20%0AWhat%20are%20you%20interested%20in%3F%20%0A%E2%98%90%20Strategy%0A%E2%98%90%20Data%20%26%20Analytics%0A%E2%98%90%20Website%20Development%0A%E2%98%90%20Design%20%26%20UX%0A%E2%98%90%20Advertising%0A%E2%98%90%20Growth%20%26%20SEO%0A%E2%98%90%20Full%20service%20partnership%0A%0ACurrent%20monthly%20marketing%20budget%3A%20%0A%0ABiggest%20marketing%20challenge%20right%20now%3A%20%0A%0ABest%20time%20for%20a%20call%3A%20%0A%0AThanks%21" class="cta-button">START YOUR PROJECT</a>
+                <h1>In a complex world<span class="accent">,</span><br>simple wins<span class="accent">.</span></h1>
+                <p class="hero-sub">Cut through the noise with elegantly simple marketing</p>
+                <p class="hero-desc">Your business deserves marketing that works, not marketing that complicates. We deliver clear strategies, honest communication, and measurable results without the industry jargon or unnecessary complexity.</p>
+                <a href="mailto:hello@gotkiwi.com" class="hero-cta">
+                    Start your project
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services -->
     <section class="services" id="services">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2 class="section-title">Simple solutions,<br>complex results</h2>
                 <p class="section-subtitle">Six core services that strip away complexity and deliver what actually moves your business forward.</p>
             </div>
-            
-            <div class="services-grid">
+            <div class="services-grid fade-in">
                 <div class="service-card">
                     <h3>Got Strategy?</h3>
                     <ul class="service-list">
@@ -1094,7 +821,6 @@
                         <li>Brand Positioning</li>
                     </ul>
                 </div>
-
                 <div class="service-card">
                     <h3>Got Data?</h3>
                     <ul class="service-list">
@@ -1103,7 +829,6 @@
                         <li>ROI Measurement</li>
                     </ul>
                 </div>
-
                 <div class="service-card">
                     <h3>Got Website?</h3>
                     <ul class="service-list">
@@ -1112,7 +837,6 @@
                         <li>Web Redesign</li>
                     </ul>
                 </div>
-
                 <div class="service-card">
                     <h3>Got Design?</h3>
                     <ul class="service-list">
@@ -1121,7 +845,6 @@
                         <li>User Experience Optimization</li>
                     </ul>
                 </div>
-
                 <div class="service-card">
                     <h3>Got Advertising?</h3>
                     <ul class="service-list">
@@ -1130,7 +853,6 @@
                         <li>LinkedIn Advertising</li>
                     </ul>
                 </div>
-
                 <div class="service-card">
                     <h3>Got Growth?</h3>
                     <ul class="service-list">
@@ -1143,38 +865,40 @@
         </div>
     </section>
 
-    <!-- Video Showcase Section -->
+    <!-- Video Showcase -->
     <section class="video-showcase">
-        <div class="video-showcase-container container">
-            <div class="video-showcase-header">
-                <h2>See simplicity in action</h2>
-                <p>Watch how we transform complex challenges into elegant solutions</p>
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">See simplicity in action</h2>
+                <p class="section-subtitle">Watch how we transform complex challenges into elegant solutions</p>
             </div>
-            <div class="video-wrapper">
+            <div class="video-wrapper fade-in">
                 <video controls playsinline>
                     <source src="gotkiwi.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Preview -->
+    <!-- Case Studies -->
     <section class="case-studies" id="work">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2 class="section-title">Simple strategies,<br>powerful outcomes</h2>
                 <p class="section-subtitle">How we help brands cut through complexity to achieve what actually matters.</p>
             </div>
-            
+
             <div class="case-study-item">
                 <div class="case-study-content">
                     <div class="case-study-meta">Full Service Client</div>
                     <h3>From scattered tactics to focused growth</h3>
-                    <p class="case-study-description">
-                        FinMango came to us as a growing nonprofit with scattered marketing efforts and untapped potential. Using our complete service suite—from strategy and web development to our exclusive Fresho platform — we transformed their entire digital presence. The result: 340% visitor growth, maximized ad grant utilization (full 10k spent a month), and a streamlined operation that scales effortlessly.
-                    </p>
-                    <a href="https://finmango.org" target="_blank" class="case-study-link">View full case study</a>
+                    <p class="case-study-description">FinMango came to us as a growing nonprofit with scattered marketing efforts and untapped potential. Using our complete service suite—from strategy and web development to our exclusive Fresho platform—we transformed their entire digital presence. The result: 340% visitor growth, maximized ad grant utilization (full 10k spent a month), and a streamlined operation that scales effortlessly.</p>
+                    <a href="https://finmango.org" target="_blank" class="case-study-link">
+                        View case study
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
                 </div>
                 <div class="case-study-image">
                     <img src="finmango.png" alt="FinMango analytics dashboard">
@@ -1185,10 +909,13 @@
                 <div class="case-study-content">
                     <div class="case-study-meta">Nonprofit Client</div>
                     <h3>One clear message, massive impact</h3>
-                    <p class="case-study-description">
-                        Run Your City was unable to spend ad budget with poor targeting and wasted spend. Using our proprietary Fresho platform, we reduced their cost-per-acquisition by 67% while tripling their website visibility. We also maximized their Ad grant and spend the full 10k / month.
-                    </p>
-                    <a href="https://runyourcity.org" target="_blank" class="case-study-link">View full case study</a>
+                    <p class="case-study-description">Run Your City was unable to spend ad budget with poor targeting and wasted spend. Using our proprietary Fresho platform, we reduced their cost-per-acquisition by 67% while tripling their website visibility. We also maximized their Ad grant and spend the full 10k / month.</p>
+                    <a href="https://runyourcity.org" target="_blank" class="case-study-link">
+                        View case study
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
                 </div>
                 <div class="case-study-image">
                     <img src="ryc.png" alt="Run Your City website interface">
@@ -1197,191 +924,62 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What our clients say</h2>
-                <p class="section-subtitle">Real results from real partnerships</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <p class="testimonial-quote">
-                        "GotKiwi took our overcomplicated marketing mess and made it beautifully simple. Our team finally understands our strategy, and our customers do too."
-                    </p>
-                    <div class="testimonial-author">Sarah Chen</div>
-                    <div class="testimonial-company">VP Marketing, TechFlow</div>
-                </div>
-
-                <div class="testimonial">
-                    <p class="testimonial-quote">
-                        "They don't just simplify strategy—they simplify success. Clear direction, clear results, clear ROI."
-                    </p>
-                    <div class="testimonial-author">Marcus Thompson</div>
-                    <div class="testimonial-company">CEO, Growth Labs</div>
-                </div>
-
-                <div class="testimonial">
-                    <p class="testimonial-quote">
-                        "Finally, a marketing partner that makes complex simple. Our growth went from chaotic to systematic overnight."
-                    </p>
-                    <div class="testimonial-author">Lisa Rodriguez</div>
-                    <div class="testimonial-company">Founder, Wellness Co</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
+    <!-- Pricing -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2 class="section-title">Simple pricing</h2>
                 <p class="section-subtitle">One transparent price. No surprises. No complexity.</p>
             </div>
-            
-            <div class="pricing-container">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Monthly Partnership</h3>
-                    </div>
-                    <div class="pricing-amount">$2,499</div>
-                    <div class="pricing-period">per month</div>
-                    
-                    <div class="setup-fee">
-                        <div class="setup-fee-text">Or pay annually</div>
-                        <div class="setup-amount">$23,988/year</div>
-                        <div style="font-size: 0.85rem; color: #667eea; font-weight: 600; margin-top: 0.5rem;">
-                            Save $6,000 with annual plan
-                        </div>
-                    </div>
-                    
-                    <a href="mailto:hello@gotkiwi.com?subject=Interest%20in%20GotKiwi&body=Hi%20GotKiwi%20team%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20your%20services.%0A%0ACompany%20Name%3A%20%0AWhat%20are%20you%20interested%20in%3F%20%0A%E2%98%90%20Strategy%0A%E2%98%90%20Data%20%26%20Analytics%0A%E2%98%90%20Website%20Development%0A%E2%98%90%20Design%20%26%20UX%0A%E2%98%90%20Advertising%0A%E2%98%90%20Growth%20%26%20SEO%0A%E2%98%90%20Full%20service%20partnership%0A%0ACurrent%20monthly%20marketing%20budget%3A%20%0A%0ABiggest%20marketing%20challenge%20right%20now%3A%20%0A%0ABest%20time%20for%20a%20call%3A%20%0A%0AThanks%21" class="pricing-cta">START YOUR PROJECT</a>
+            <div class="pricing-card fade-in">
+                <div class="pricing-label">Monthly Partnership</div>
+                <div class="pricing-amount">$2,499</div>
+                <div class="pricing-period">per month</div>
+                <div class="pricing-note">
+                    Pay annually: <strong>Save $6,000</strong><br>
+                    <span style="font-size: 0.875rem; color: var(--gray-400);">$23,988/year</span>
                 </div>
+                <a href="mailto:hello@gotkiwi.com" class="pricing-cta">Start your project</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Ready for simple?</h2>
-            <p style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 3rem;">Less complexity. More results. That's what good marketing should be.</p>
-            <a href="mailto:hello@gotkiwi.com?subject=Interest%20in%20GotKiwi&body=Hi%20GotKiwi%20team%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20your%20services.%0A%0ACompany%20Name%3A%20%0AWhat%20are%20you%20interested%20in%3F%20%0A%E2%98%90%20Strategy%0A%E2%98%90%20Data%20%26%20Analytics%0A%E2%98%90%20Website%20Development%0A%E2%98%90%20Design%20%26%20UX%0A%E2%98%90%20Advertising%0A%E2%98%90%20Growth%20%26%20SEO%0A%E2%98%90%20Full%20service%20partnership%0A%0ACurrent%20monthly%20marketing%20budget%3A%20%0A%0ABiggest%20marketing%20challenge%20right%20now%3A%20%0A%0ABest%20time%20for%20a%20call%3A%20%0A%0AThanks%21" class="contact-button">REACH OUT</a>
+            <p class="contact-desc">Less complexity. More results. That's what good marketing should be.</p>
+            <a href="mailto:hello@gotkiwi.com" class="contact-cta">Reach out</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>GotKiwi</h3>
-                    <p>hello@gotkiwi.com</p>
-                </div>
-                <p class="copyright">&copy; 2025 GotKiwi. All rights reserved.</p>
+            <div class="footer-inner">
+                <div class="footer-logo">GotKiwi</div>
+                <div class="footer-email">hello@gotkiwi.com</div>
+                <div class="footer-copy">&copy; 2025 GotKiwi</div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Loading animation
-        window.addEventListener('load', () => {
-            const loadingAnimation = document.getElementById('loadingAnimation');
-            setTimeout(() => {
-                loadingAnimation.classList.add('hidden');
-            }, 800);
-        });
-
-        // Remove the duplicate scroll event listener
-        // Add active state to navigation links based on scroll position
-        const updateActiveNav = () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const scrollPosition = window.pageYOffset + 100;
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        };
+        document.querySelectorAll('.fade-in, .case-study-item').forEach(el => observer.observe(el));
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const navHeight = 80; // Fixed nav height
-                    const targetPosition = target.offsetTop - navHeight;
-                    
-                    // Disable scroll event temporarily
-                    window.removeEventListener('scroll', handleScroll);
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Re-enable scroll event after animation
-                    setTimeout(() => {
-                        window.addEventListener('scroll', handleScroll);
-                    }, 1000);
-                }
-            });
-        });
-
-        // Combine all scroll events into one function
-        const handleScroll = () => {
-            const navbar = document.getElementById('navbar');
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (scrollTop / scrollHeight) * 100;
-            
-            // Update progress bar
-            scrollProgress.style.width = scrolled + '%';
-            
-            // Update navbar
-            if (scrollTop > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            // Update active nav
-            updateActiveNav();
-        };
-
-        // Throttle scroll events
-        let scrollTimer;
-        window.addEventListener('scroll', () => {
-            if (scrollTimer) {
-                clearTimeout(scrollTimer);
-            }
-            scrollTimer = setTimeout(handleScroll, 10);
-        });
-
-        // Mobile menu functionality
+        // Mobile menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileClose = document.getElementById('mobileClose');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.add('active');
@@ -1393,89 +991,22 @@
             document.body.style.overflow = 'auto';
         });
 
-        // Close mobile menu when clicking on nav links
-        mobileNavLinks.forEach(link => {
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
         });
 
-        // Close mobile menu when clicking outside
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Enhanced intersection observer for animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        }, observerOptions);
-
-        // Observe case study items and service cards
-        document.querySelectorAll('.case-study-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            observer.observe(card);
-        });
-
-        // Add scroll-triggered animations for service cards
-        const serviceObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('fade-in-up');
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card').forEach(card => {
-            serviceObserver.observe(card);
-        });
-
-        // Improved keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Testimonial carousel effect (optional)
-        const testimonials = document.querySelectorAll('.testimonial');
-        testimonials.forEach((testimonial, index) => {
-            testimonial.style.animationDelay = `${index * 0.2}s`;
-        });
-
-        // Video pause/play on visibility
-        const videos = document.querySelectorAll('video');
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.play();
-                } else {
-                    entry.target.pause();
-                }
-            });
-        });
-
-        videos.forEach(video => {
-            videoObserver.observe(video);
         });
     </script>
 </body>
